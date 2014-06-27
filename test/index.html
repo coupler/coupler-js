@@ -1,0 +1,27 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mocha Tests</title>
+  <link rel="stylesheet" href="css/mocha.css" />
+</head>
+<body>
+  <div id="mocha"></div>
+  <script src="lib/assert.js"></script>
+  <script src="lib/mocha.js"></script>
+  <script>mocha.setup('tdd')</script>
+
+  <!-- load application -->
+  <script src="../lib/maria.js"></script>
+  <script src="../src/js/namespace.js"></script>
+  <script src="../src/js/models/AppModel.js"></script>
+
+  <!-- load tests -->
+  <script src="js/test_AppModel.js"></script>
+
+  <script>
+    mocha.checkLeaks();
+    mocha.globals(['assert', 'maria', 'coupler']);
+    mocha.run();
+  </script>
+</body>
+</html>
