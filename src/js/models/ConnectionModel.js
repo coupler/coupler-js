@@ -1,5 +1,14 @@
 maria.Model.subclass(coupler, 'ConnectionModel', {
   properties: {
+    getName: function() {
+      return this._name;
+    },
+    setName: function(name) {
+      if (this._name !== name) {
+        this._name = name;
+        this.dispatchEvent({type: 'change'});
+      }
+    },
     getAdapter: function() {
       return this._adapter;
     },

@@ -1,4 +1,22 @@
 suite('ConnectionModel', function() {
+  suite('#setName', function() {
+    test('should set name', function() {
+      var connection = new coupler.ConnectionModel();
+      connection.setName('Foo');
+      assert.equal('Foo', connection.getName());
+    });
+
+    test('should dispatch change event', function() {
+      var connection = new coupler.ConnectionModel();
+      var callback = false;
+      maria.on(connection, 'change', function() {
+        callback = true;
+      });
+      connection.setName('Foo');
+      assert(callback);
+    });
+  });
+
   suite('#setAdapter', function() {
     test('should set adapter', function() {
       var connection = new coupler.ConnectionModel();
