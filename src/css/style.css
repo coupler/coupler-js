@@ -1,0 +1,60 @@
+body {
+  background-color: gray;
+}
+
+div.app {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 1000px;
+  margin: 10px auto;
+}
+
+div.navigation {
+  box-sizing: border-box;
+  width: 200px;
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+  border-right: 1px solid lightgray;
+}
+
+div.navigation > ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+div.navigation > ul > li {
+  padding: 5px;
+  margin: 5px;
+  color: white;
+  background-color: #333;
+  border-radius: 3px;
+}
+
+div.content {
+  box-sizing: border-box;
+  width: 800px;
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px;
+}
+
+div.connections-input {
+  display: table;
+}
+
+div.field {
+  display: table-row;
+}
+
+div.field > div.label,
+div.field > input,
+div.field > select {
+  display: table-cell;
+}
+
+div.field > div.label {
+  padding-right: 10px;
+}
