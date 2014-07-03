@@ -1,4 +1,7 @@
 maria.ElementView.subclass(coupler, "ConnectionsInputView", {
+  uiActions: {
+    'click .submit': 'onSubmit'
+  },
   properties: {
     getNameValue: function() {
       return this.find('input.name').value;
