@@ -7,7 +7,7 @@
   "test/js/models/test_*.js": {
     "alternate": "src/js/models/{}.js",
     "type": "modeltest",
-    "template": ["suite(\"{}\", function() {", "});"]
+    "template": ["suite('{}', function() {", "});"]
   },
   "src/js/templates/*.js": {
     "type": "template",
@@ -16,11 +16,21 @@
   "src/js/views/*.js": {
     "alternate": "test/js/views/test_{}.js",
     "type": "view",
-    "template": ["maria.ElementView.subclass(coupler, \"{}\", {", "});"]
+    "template": ["maria.ElementView.subclass(coupler, '{}', {", "});"]
   },
   "test/js/views/test_*.js": {
     "alternate": "src/js/views/{}.js",
     "type": "viewtest",
+    "template": ["suite('{}', function() {", "});"]
+  },
+  "src/js/controllers/*.js": {
+    "alternate": "test/js/controllers/test_{}.js",
+    "type": "controller",
+    "template": ["maria.Controller.subclass(coupler, '{}', {", "});"]
+  },
+  "test/js/controllers/test_*.js": {
+    "alternate": "src/js/controllers/{}.js",
+    "type": "controllertest",
     "template": ["suite(\"{}\", function() {", "});"]
   },
 }
