@@ -8,6 +8,12 @@ maria.Model.subclass(coupler, 'AppModel', {
         this._mode = mode;
         this.dispatchEvent({type: 'change'});
       }
+    },
+    getConnections: function() {
+      if (typeof(this._connections) == 'undefined') {
+        this._connections = new coupler.ConnectionsModel();
+      }
+      return this._connections;
     }
   }
 });
