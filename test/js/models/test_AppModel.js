@@ -25,4 +25,33 @@ suite('AppModel', function() {
       assert(connections instanceof coupler.ConnectionsModel);
     });
   });
+
+  suite("#toJSON", function() {
+    test('should return object', function() {
+      this.app.setMode('foo');
+      var expected = {
+        mode: 'foo',
+        connections: this.app.getConnections()
+      };
+      assert.deepEqual(expected, this.app.toJSON());
+    });
+  });
+
+  suite("#load", function() {
+    test('should set values', function() {
+      this.app.load({
+        mode: 'foo',
+        connections: [{
+          name: 'Foo',
+          adapter: 'MySQL',
+          host: 'localhost',
+          port: 123,
+          user: 'foo',
+          password: 'secret'
+        }]
+      });
+      assert.equal('foo', this.app.getMode());
+      assert.equal(1, this.app.getConnections().size);
+    });
+  });
 });
