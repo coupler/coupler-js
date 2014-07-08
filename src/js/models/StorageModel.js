@@ -19,6 +19,7 @@ maria.Model.subclass(coupler, "StorageModel", {
     add: function(model, arg) {
       this._models.push([model, arg]);
       maria.on(model, 'change', this);
+      this.load(model, arg);
     },
     remove: function(model) {
       var index = this._modelIndex(model);
@@ -34,11 +35,12 @@ maria.Model.subclass(coupler, "StorageModel", {
       }
     },
     handleEvent: function(evt) {
+      var model = evt.currentTarget;
       if (this._mode == 'object') {
-        var name = this._modelArg(evt.target);
+        var name = this._modelArg(model);
 
         if (typeof(name) !== 'undefined') {
-          var data = this._serializeModel(evt.target);
+          var data = this._serializeModel(model);
           this._object[name] = data;
         }
       }
