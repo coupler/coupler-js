@@ -12,6 +12,7 @@ maria.Model.subclass(coupler, 'AppModel', {
     getConnections: function() {
       if (typeof(this._connections) == 'undefined') {
         this._connections = new coupler.ConnectionsModel();
+        this._connections.addParentEventTarget(this);
       }
       return this._connections;
     },

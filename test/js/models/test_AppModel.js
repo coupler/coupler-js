@@ -24,6 +24,16 @@ suite('AppModel', function() {
       var connections = this.app.getConnections();
       assert(connections instanceof coupler.ConnectionsModel);
     });
+
+    test('should setup event parent', function() {
+      var connections = this.app.getConnections();
+      var called = false;
+      maria.on(this.app, 'change', function() {
+        called = true;
+      });
+      connections.dispatchEvent({type: 'change'});
+      assert(called);
+    });
   });
 
   suite("#toJSON", function() {
