@@ -20,9 +20,22 @@ maria.Model.subclass(coupler, "StorageModel", {
       this._models.push([model, arg]);
       maria.on(model, 'change', this);
     },
+    remove: function(model) {
+      var index = this._modelIndex(model);
+      if (index >= 0) {
+        maria.off(model, 'change', this);
+        this._models.splice(index, 1);
+      }
+    },
+    load: function(model, arg) {
+      if (this._mode == 'object' && arg in this._object) {
+        var data = JSON.parse(this._object[arg]);
+        model.load(data);
+      }
+    },
     handleEvent: function(evt) {
       if (this._mode == 'object') {
-        var name = this._findArg(evt.target);
+        var name = this._modelArg(evt.target);
 
         if (typeof(name) !== 'undefined') {
           var data = this._serializeModel(evt.target);
@@ -31,14 +44,22 @@ maria.Model.subclass(coupler, "StorageModel", {
       }
     },
 
-    _findArg: function(model) {
-      var arg;
+    _modelIndex: function(model) {
+      var index = -1;
       for (var i = 0, ilen = this._models.length; i < ilen; i++) {
         var arr = this._models[i];
         if (arr[0] === model) {
-          arg = arr[1];
+          index = i;
           break;
         }
+      }
+      return index;
+    },
+    _modelArg: function(model) {
+      var arg;
+      var index = this._modelIndex(model);
+      if (index >= 0) {
+        arg = this._models[index][1];
       }
       return arg;
     },
