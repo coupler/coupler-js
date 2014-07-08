@@ -53,6 +53,24 @@ maria.Model.subclass(coupler, 'ConnectionModel', {
         this._port = port;
         this.dispatchEvent({type: 'change'});
       }
+    },
+    toJSON: function() {
+      return({
+        name: this._name,
+        adapter: this._adapter,
+        host: this._host,
+        port: this._port,
+        user: this._user,
+        password: this._password
+      });
+    },
+    load: function(data) {
+      this._name = data.name;
+      this._adapter = data.adapter;
+      this._host = data.host;
+      this._port = data.port;
+      this._user = data.user;
+      this._password = data.password;
     }
   }
 });

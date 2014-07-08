@@ -106,4 +106,46 @@ suite('ConnectionModel', function() {
       assert(callback);
     });
   });
+
+  suite('#toJSON', function() {
+    test('should return object', function() {
+      var connection = new coupler.ConnectionModel();
+      connection.setName('Foo');
+      connection.setAdapter('MySQL');
+      connection.setHost('localhost');
+      connection.setPort(123);
+      connection.setUser('foo');
+      connection.setPassword('secret');
+
+      var expected = {
+        name: 'Foo',
+        adapter: 'MySQL',
+        host: 'localhost',
+        port: 123,
+        user: 'foo',
+        password: 'secret'
+      };
+      assert.deepEqual(expected, connection.toJSON());
+    });
+  });
+
+  suite('#load', function() {
+    test('should set values', function() {
+      var connection = new coupler.ConnectionModel();
+      connection.load({
+        name: 'Foo',
+        adapter: 'MySQL',
+        host: 'localhost',
+        port: 123,
+        user: 'foo',
+        password: 'secret'
+      });
+      assert.equal('Foo', connection.getName());
+      assert.equal('MySQL', connection.getAdapter());
+      assert.equal('localhost', connection.getHost());
+      assert.equal(123, connection.getPort());
+      assert.equal('foo', connection.getUser());
+      assert.equal('secret', connection.getPassword());
+    });
+  });
 });
