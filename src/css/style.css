@@ -42,6 +42,7 @@ div.content {
 }
 
 div.connections-input {
+  margin-top: 10px;
   display: table;
 }
 
@@ -57,4 +58,24 @@ div.field > select {
 
 div.field > div.label {
   padding-right: 10px;
+}
+
+div.connections {
+  display: table;
+}
+
+div.connections > div.header,
+div.connections > div.connection {
+  display: table-row;
+}
+
+div.connections > div.header > div.label {
+  display: table-cell;
+  padding: 0 5px;
+  border-bottom: 1px solid black;
+}
+
+div.connections > div.connection > div.value {
+  display: table-cell;
+  padding: 5px;
 }
