@@ -107,6 +107,20 @@ suite('ConnectionModel', function() {
     });
   });
 
+  suite('#getDatasets', function() {
+    test('should return a DatasetsModel', function() {
+      var connection = new coupler.ConnectionModel();
+      var datasets = connection.getDatasets();
+      assert(datasets instanceof coupler.DatasetsModel);
+    });
+
+    test('should return the same DatasetsModel each time', function() {
+      var connection = new coupler.ConnectionModel();
+      var datasets = connection.getDatasets();
+      assert.strictEqual(datasets, connection.getDatasets());
+    });
+  });
+
   suite('#toJSON', function() {
     test('should return object', function() {
       var connection = new coupler.ConnectionModel();
@@ -123,7 +137,8 @@ suite('ConnectionModel', function() {
         host: 'localhost',
         port: 123,
         user: 'foo',
-        password: 'secret'
+        password: 'secret',
+        datasets: connection.getDatasets()
       };
       assert.deepEqual(expected, connection.toJSON());
     });
@@ -138,7 +153,8 @@ suite('ConnectionModel', function() {
         host: 'localhost',
         port: 123,
         user: 'foo',
-        password: 'secret'
+        password: 'secret',
+        datasets: [{name: 'foo', table_name: 'foos'}]
       });
       assert.equal('Foo', connection.getName());
       assert.equal('MySQL', connection.getAdapter());
@@ -146,6 +162,7 @@ suite('ConnectionModel', function() {
       assert.equal(123, connection.getPort());
       assert.equal('foo', connection.getUser());
       assert.equal('secret', connection.getPassword());
+      assert.equal(1, connection.getDatasets().size);
     });
   });
 });

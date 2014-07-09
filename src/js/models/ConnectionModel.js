@@ -54,6 +54,12 @@ maria.Model.subclass(coupler, 'ConnectionModel', {
         this.dispatchEvent({type: 'change'});
       }
     },
+    getDatasets: function() {
+      if (typeof(this._datasets) == 'undefined') {
+        this._datasets = new coupler.DatasetsModel();
+      }
+      return this._datasets;
+    },
     toJSON: function() {
       return({
         name: this._name,
@@ -61,7 +67,8 @@ maria.Model.subclass(coupler, 'ConnectionModel', {
         host: this._host,
         port: this._port,
         user: this._user,
-        password: this._password
+        password: this._password,
+        datasets: this.getDatasets()
       });
     },
     load: function(data) {
@@ -71,6 +78,7 @@ maria.Model.subclass(coupler, 'ConnectionModel', {
       this._port = data.port;
       this._user = data.user;
       this._password = data.password;
+      this.getDatasets().load(data.datasets);
     }
   }
 });
