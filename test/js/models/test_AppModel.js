@@ -57,7 +57,8 @@ suite('AppModel', function() {
           host: 'localhost',
           port: 123,
           user: 'foo',
-          password: 'secret'
+          password: 'secret',
+          datasets: [{name: 'foo', table_name: 'foos'}]
         }]
       });
       assert.equal('foo', this.app.getMode());
