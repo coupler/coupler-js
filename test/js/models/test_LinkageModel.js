@@ -1,0 +1,2 @@
+suite('LinkageModel', function() {
+});

@@ -10,13 +10,23 @@
   <script src="lib/mocha.js"></script>
   <script>mocha.setup('tdd')</script>
 
-  <!-- load application -->
+  <!-- begin library sources -->
   <script src="../lib/maria.js"></script>
+  <!-- end library sources -->
+
+  <!-- begin miscellaneous sources -->
   <script src="../src/js/namespace.js"></script>
+  <!-- end miscellaneous sources -->
+
+  <!-- begin model sources -->
   <script src="../src/js/models/StorageModel.js"></script>
   <script src="../src/js/models/AppModel.js"></script>
   <script src="../src/js/models/ConnectionModel.js"></script>
   <script src="../src/js/models/ConnectionsModel.js"></script>
+  <script src="../src/js/models/LinkageModel.js"></script>
+  <!-- end model sources -->
+
+  <!-- begin template sources -->
   <script src="../src/js/templates/ConnectionTemplate.js"></script>
   <script src="../src/js/templates/ConnectionsTemplate.js"></script>
   <script src="../src/js/templates/ConnectionsInputTemplate.js"></script>
@@ -24,6 +34,9 @@
   <script src="../src/js/templates/NavigationTemplate.js"></script>
   <script src="../src/js/templates/ContentTemplate.js"></script>
   <script src="../src/js/templates/AppTemplate.js"></script>
+  <!-- end template sources -->
+
+  <!-- begin view sources -->
   <script src="../src/js/views/ConnectionView.js"></script>
   <script src="../src/js/views/ConnectionsView.js"></script>
   <script src="../src/js/views/ConnectionsInputView.js"></script>
@@ -31,14 +44,22 @@
   <script src="../src/js/views/NavigationView.js"></script>
   <script src="../src/js/views/ContentView.js"></script>
   <script src="../src/js/views/AppView.js"></script>
+  <!-- end view sources -->
+
+  <!-- begin controller sources -->
   <script src="../src/js/controllers/ConnectionsInputController.js"></script>
   <script src="../src/js/controllers/NavigationController.js"></script>
+  <!-- end controller sources -->
 
-  <!-- load tests -->
+  <!-- begin model tests -->
   <script src="js/models/test_StorageModel.js"></script>
   <script src="js/models/test_AppModel.js"></script>
   <script src="js/models/test_ConnectionModel.js"></script>
   <script src="js/models/test_ConnectionsModel.js"></script>
+  <script src="js/models/test_LinkageModel.js"></script>
+  <!-- end model tests -->
+
+  <!-- begin view tests -->
   <script src="js/views/test_ConnectionView.js"></script>
   <script src="js/views/test_ConnectionsView.js"></script>
   <script src="js/views/test_ConnectionsInputView.js"></script>
@@ -46,8 +67,12 @@
   <script src="js/views/test_NavigationView.js"></script>
   <script src="js/views/test_ContentView.js"></script>
   <script src="js/views/test_AppView.js"></script>
+  <!-- end view tests -->
+
+  <!-- begin controller tests -->
   <script src="js/controllers/test_ConnectionsInputController.js"></script>
   <script src="js/controllers/test_NavigationController.js"></script>
+  <!-- end controller tests -->
 
   <script>
     mocha.checkLeaks();
