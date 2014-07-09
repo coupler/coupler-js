@@ -1,4 +1,4 @@
-suite("ConnectionView", function() {
+suite("ConnectionRowView", function() {
   suite("#build", function() {
     setup(function() {
       this.connection = new coupler.ConnectionModel();
@@ -8,7 +8,7 @@ suite("ConnectionView", function() {
       this.connection.setPort(3306);
       this.connection.setUser('foo');
       this.connection.setPassword('bar');
-      this.view = new coupler.ConnectionView(this.connection);
+      this.view = new coupler.ConnectionRowView(this.connection);
     });
 
     test('should show name', function() {

@@ -1,0 +1,1 @@
+coupler.ConnectionRowTemplate = '<div class="connection"><div class="name value"></div><div class="adapter value"></div><div class="host value"></div><div class="port value"></div><div class="user value"></div></div>';

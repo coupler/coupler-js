@@ -1,4 +1,4 @@
-maria.ElementView.subclass(coupler, "ConnectionView", {
+maria.ElementView.subclass(coupler, "ConnectionRowView", {
   properties: {
     buildData: function() {
       var conn = this.getModel();

@@ -1,6 +1,6 @@
 suite("ConnectionsTableView", function() {
   suite('#build', function() {
-    test('should add ConnectionView children', function() {
+    test('should add ConnectionRowView children', function() {
       var connection = new coupler.ConnectionModel();
       var connections = new coupler.ConnectionsModel();
       connections.add(connection);
