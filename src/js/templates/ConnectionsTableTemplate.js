@@ -1,0 +1,1 @@
+coupler.ConnectionsTableTemplate = '<div class="connections"><div class="header"><div class="label">Name</div><div class="label">Adapter</div><div class="label">Host</div><div class="label">Port</div><div class="label">User</div></div></div>';
