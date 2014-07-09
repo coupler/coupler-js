@@ -3,7 +3,8 @@ suite('ConnectionsModel', function() {
     test('should return array', function() {
       var connection = new coupler.ConnectionModel();
       var connections = new coupler.ConnectionsModel();
-      assert.deepEqual(connections.toArray(), connections.toJSON());
+      connections.add(connection)
+      assert.deepEqual([connection], connections.toJSON());
     });
   });
 
@@ -16,7 +17,8 @@ suite('ConnectionsModel', function() {
         host: 'localhost',
         port: 123,
         user: 'foo',
-        password: 'secret'
+        password: 'secret',
+        datasets: [{name: 'foo', table_name: 'foos'}]
       }]);
       assert.equal(1, connections.size);
     });
