@@ -25,5 +25,11 @@ suite("ConnectionsInputController", function() {
       assert.equal('foo', connection.getUser());
       assert.equal('bar', connection.getPassword());
     });
+
+    test('should reset the form', function() {
+      sinon.stub(this.view, 'reset');
+      this.controller.onSubmit();
+      assert(this.view.reset.called);
+    });
   });
 });

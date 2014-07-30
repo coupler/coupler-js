@@ -23,6 +23,15 @@ maria.ElementView.subclass(coupler, "ConnectionsInputView", {
     },
     getPasswordValue: function() {
       return this.find('input.password').value;
+    },
+    reset: function() {
+      this.find('input.name').value = '';
+      this.find('select.adapter').value = '';
+      this.find('input.host').value = '';
+      this.find('input.port').value = '';
+      this.find('input.host').value = '';
+      this.find('input.user').value = '';
+      this.find('input.password').value = '';
     }
   }
 });

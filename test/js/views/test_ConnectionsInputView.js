@@ -45,4 +45,24 @@ suite("ConnectionsInputView", function() {
       assert.equal('bar', this.view.getPasswordValue());
     });
   });
+
+  suite("#reset", function() {
+    test('should clear input values', function() {
+      var nameInput = this.view.find('input.name'); nameInput.value = 'Foo';
+      var adapterSelect = this.view.find('select.adapter'); adapterSelect.value = 'MySQL';
+      var hostInput = this.view.find('input.host'); hostInput.value = 'localhost';
+      var portInput = this.view.find('input.port'); portInput.value = '123';
+      var userInput = this.view.find('input.user'); userInput.value = 'foo';
+      var passwordInput = this.view.find('input.password'); passwordInput.value = 'bar';
+
+      this.view.reset();
+
+      assert.equal('', nameInput.value);
+      assert.equal('', adapterSelect.value);
+      assert.equal('', hostInput.value);
+      assert.equal('', portInput.value);
+      assert.equal('', userInput.value);
+      assert.equal('', passwordInput.value);
+    });
+  });
 });

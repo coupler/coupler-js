@@ -7,6 +7,7 @@
 <body>
   <div id="mocha"></div>
   <script src="lib/assert.js"></script>
+  <script src="lib/sinon.js"></script>
   <script src="lib/mocha.js"></script>
   <script>mocha.setup('tdd')</script>
 
@@ -80,7 +81,7 @@
 
   <script>
     mocha.checkLeaks();
-    mocha.globals(['assert', 'maria', 'coupler']);
+    mocha.globals(['assert', 'sinon', 'maria', 'coupler']);
     mocha.run();
   </script>
 </body>

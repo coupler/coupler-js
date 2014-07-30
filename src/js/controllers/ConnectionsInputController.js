@@ -15,6 +15,7 @@ maria.Controller.subclass(coupler, 'ConnectionsInputController', {
       }
 
       this.getModel().add(connection);
+      view.reset();
     }
   }
 });
