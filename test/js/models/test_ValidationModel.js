@@ -1,12 +1,4 @@
 suite('ValidationModel', function() {
-  suite('#setValid', function() {
-    test('should set valid', function() {
-      var validation = new coupler.ValidationModel();
-      validation.setValid(true);
-      assert(validation.getValid());
-    });
-  });
-
   suite('#getErrors', function() {
     test('should return ErrorsModel', function() {
       var validation = new coupler.ValidationModel();
@@ -14,4 +6,18 @@ suite('ValidationModel', function() {
       assert(errors instanceof coupler.ErrorsModel);
     });
   });
+
+  suite('#isValid', function() {
+    test('should return true if there are no errors', function() {
+      var validation = new coupler.ValidationModel();
+      assert(validation.isValid());
+    });
+
+    test('should return false if there are errors', function() {
+      var validation = new coupler.ValidationModel();
+      validation.getErrors().add(new coupler.ErrorModel());
+      assert(!validation.isValid());
+    });
+  });
+
 });
