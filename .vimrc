@@ -1,10 +1,16 @@
 command! -nargs=1 AddModelTest call <SID>add_model_test(<f-args>)
+command! -nargs=1 AddValidatorTest call <SID>add_validator_test(<f-args>)
 command! -nargs=1 AddViewTest call <SID>add_view_test(<f-args>)
 command! -nargs=1 AddControllerTest call <SID>add_controller_test(<f-args>)
 
 function! s:add_model_test(name)
   call s:add_source('model', 'models', a:name)
   call s:add_test('model', 'models', a:name)
+endf
+
+function! s:add_validator_test(name)
+  call s:add_source('validator', 'validators', a:name)
+  call s:add_test('validator', 'validators', a:name)
 endf
 
 function! s:add_view_test(name)

@@ -9,6 +9,16 @@
     "type": "modeltest",
     "template": ["suite('{}', function() {", "});"]
   },
+  "src/js/validators/*.js": {
+    "alternate": "test/js/validators/test_{}.js",
+    "type": "validator",
+    "template": ["coupler.{} = function() {", "};"]
+  },
+  "test/js/validators/test_*.js": {
+    "alternate": "src/js/validators/{}.js",
+    "type": "validatortest",
+    "template": ["suite('{}', function() {", "});"]
+  },
   "src/js/templates/*.js": {
     "type": "template",
     "template": ["coupler.{} = '';"]
