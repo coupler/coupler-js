@@ -6,4 +6,12 @@ suite('ValidationModel', function() {
       assert(validation.getValid());
     });
   });
+
+  suite('#getErrors', function() {
+    test('should return ErrorsModel', function() {
+      var validation = new coupler.ValidationModel();
+      var errors = validation.getErrors();
+      assert(errors instanceof coupler.ErrorsModel);
+    });
+  });
 });

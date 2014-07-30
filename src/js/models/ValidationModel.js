@@ -5,6 +5,12 @@ maria.Model.subclass(coupler, "ValidationModel", {
     },
     setValid: function(value) {
       this._valid = value;
+    },
+    getErrors: function() {
+      if (typeof(this._errors) == 'undefined') {
+        this._errors = new coupler.ErrorsModel();
+      }
+      return this._errors;
     }
   }
 });
